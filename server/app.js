@@ -35,13 +35,10 @@ app.use('/', index)
 
 // Send a version of index.html that is stripped of placeholders. The service-worker requests this file directly.
 app.use('/index.html', (req, res) => {
-  console.log('HELLO')
   fs.readFile(
     path.resolve(__dirname, '..', 'build', 'index.html'),
     'utf8',
     (err, htmlData) => {
-      // TODO: Last modified
-
       res.send(
         htmlData.replace(/DATA\s*=\s*{{.*?}}/g, '').replace(/{{.*?}}/g, '')
       )
