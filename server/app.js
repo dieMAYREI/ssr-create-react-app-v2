@@ -54,6 +54,13 @@ app.use(
   })
 )
 
+// Server manifest with cache headers
+app.use('/manifest.json', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build', 'manifest.json'), {
+    maxAge: '1d'
+  })
+})
+
 // Serve static assets
 app.use(express.static(path.resolve(__dirname, '..', 'build')))
 
