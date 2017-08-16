@@ -29,10 +29,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // Setup logger
 app.use(morgan('combined'))
 
-app.use('/', index)
-
 // Serve static assets
-app.use(express.static(path.resolve(__dirname, '..', 'build')))
+app.use(express.static(path.resolve(__dirname, '..', 'build'), {index: false}))
 
 app.use('/api', api)
 
