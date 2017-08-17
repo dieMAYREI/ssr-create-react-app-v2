@@ -31,8 +31,6 @@ app.use(favicon(path.join(__dirname, '../build', 'favicon.ico')))
 // Setup logger
 app.use(morgan('combined'))
 
-app.use('/', index)
-
 // Send a version of index.html that is stripped of placeholders. The service-worker requests this file directly.
 app.use('/index.html', (req, res) => {
   fs.readFile(
@@ -62,7 +60,9 @@ app.use('/manifest.json', (req, res) => {
 })
 
 // Serve static assets
-app.use(express.static(path.resolve(__dirname, '..', 'build')))
+app.use(
+  express.static(path.resolve(__dirname, '..', 'build'), { index: false })
+)
 
 // Always return the main index.html, so react-router render the route in the client
 app.use('/', universalLoader)
