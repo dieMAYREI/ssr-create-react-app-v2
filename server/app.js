@@ -13,7 +13,6 @@ require('babel-register')({
 })
 
 // routes
-const index = require('./routes/index')
 const universalLoader = require('./universal')
 
 const app = express()
