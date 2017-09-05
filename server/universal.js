@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs')
 
 const React = require('react')
-import { Helmet } from 'react-helmet'
+const { Helmet } = require('react-helmet')
 const { Provider } = require('react-redux')
 const { renderToString } = require('react-dom/server')
 const { StaticRouter } = require('react-router-dom')
