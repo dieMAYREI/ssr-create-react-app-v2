@@ -13,6 +13,8 @@ const { default: App } = require('../src/containers/App')
 
 const { default: routes } = require('../src/routes')
 
+const PrivateStores = ['auth']
+
 module.exports = function universalLoader(req, res) {
   const filePath = path.resolve(__dirname, '..', 'build', 'index.html')
 
@@ -46,10 +48,15 @@ module.exports = function universalLoader(req, res) {
         redirect(301, context.url)
       } else {
         const helmet = Helmet.renderStatic()
+
+        // prepare the serialized store (remove private keys)
+        let storeForClient = store.getState()
+        PrivateStores.forEach(key => delete storeForClient[key])
+
         // we're good, send the response
         const RenderedApp = htmlData
           .replace('{{SSR}}', markup)
-          .replace('{{WINDOW_DATA}}', JSON.stringify(store.getState()))
+          .replace('{{WINDOW_DATA}}', JSON.stringify(storeForClient))
           .replace('{{HELMET_TITLE}}', helmet.title.toString())
           .replace('{{HELMET_META}}', helmet.meta.toString())
 
