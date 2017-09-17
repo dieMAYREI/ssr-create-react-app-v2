@@ -45,7 +45,7 @@ module.exports = function universalLoader(req, res) {
 
       if (context.url) {
         // Somewhere a `<Redirect>` was rendered
-        redirect(301, context.url)
+        res.redirect(301, context.url)
       } else {
         const helmet = Helmet.renderStatic()
 
