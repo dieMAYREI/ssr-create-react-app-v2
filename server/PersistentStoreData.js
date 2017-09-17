@@ -1,13 +1,13 @@
-import merge from "lodash.merge";
+import merge from 'lodash.merge'
 
-let store = {};
+let store = {}
 
 export function saveStoreData(storeData) {
   // Here you could delete some data that should net be stored (specific to the current request/user)
 
-  store = merge(store, storeData);
+  store = merge(store, storeData)
 }
 
 export function getStoreData() {
-  return Object.assign({}, store);
+  return Object.assign({}, store)
 }
