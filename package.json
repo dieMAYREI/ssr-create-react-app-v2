@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.0.0",
     "babel-preset-env": "^1.5.1",
-    "eslint": "^4.4.1",
+    "eslint": "^4.7.0",
     "eslint-config-react-app": "^2.0.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
-    "body-parser": "^1.17.1",
+    "body-parser": "^1.18.1",
     "compression": "^1.6.2",
     "cross-env": "^5.0.5",
     "es6-promise": "^4.1.1",
@@ -33,7 +33,7 @@
     "react-router-dom": "^4.1.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "serve-favicon": "^2.4.3"
+    "serve-favicon": "^2.4.4"
   },
   "scripts": {
     "start": "react-scripts start",
