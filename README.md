@@ -14,3 +14,18 @@ npm install
 npm run build
 npm run start:server
 ```
+
+## Persistent Store
+It can be useful to persist the store-data (including the API responses), to speed things up and prevent running into API rate-limits (especially server-side).
+
+You should however add some invalidation logic, to get fresh data from time to time.
+
+### Client
+[`redux-persist`](https://github.com/rt2zz/redux-persist) is a nice library for this. You should however delay rendering your App until the rehydration is done to prevent races. Example wrapper: [HydratedAppProvider](src/containers/HydratedAppProvider.js)
+
+### Server
+One way to solve this is to store the store-data outside of the request. Example:
+
+* [`PersistentStoreData`](server/PersistentStoreData.js)
+* Call `saveStoreData(storeObject)` right before sending the response
+* Use `getStoreData()` as initial state in `configureStore(initialState)`
