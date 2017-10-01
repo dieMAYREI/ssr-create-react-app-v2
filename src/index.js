@@ -13,7 +13,7 @@ import registerServiceWorker from './registerServiceWorker'
 const initialState = window.DATA ? window.DATA : {}
 const store = configureStore(initialState)
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <Provider store={store}>
     <BrowserRouter>
       <ScrollToTop>
