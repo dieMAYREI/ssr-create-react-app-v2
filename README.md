@@ -27,5 +27,5 @@ You should however add some invalidation logic, to get fresh data from time to t
 One way to solve this is to store the store-data outside of the request. Example:
 
 * [`PersistentStoreData`](server/PersistentStoreData.js)
-* Call `saveStoreData(storeObject)` right before sending the response
+* Call `saveStoreData(storeObject)` after rendering the response
 * Use `getStoreData()` as initial state in `configureStore(initialState)`
