@@ -40,6 +40,7 @@
     "start": "react-scripts start",
     "start:server": "cross-env NODE_ENV=development node server/index.js",
     "now-start": "cross-env NODE_ENV=production node server/index.js",
+    "test": "eslint src/**/*.{js,jsx}",
     "build": "react-scripts build"
   }
 }
