@@ -1,11 +1,4 @@
-import { REQUEST, RECEIVE } from '../types/comments'
-
-function requestComments(postid) {
-  return {
-    type: REQUEST,
-    postid
-  }
-}
+import { RECEIVE } from '../types/comments'
 
 function receiveComments(postid, json) {
   return {
@@ -17,7 +10,6 @@ function receiveComments(postid, json) {
 
 function fetchComments(postid) {
   return dispatch => {
-    dispatch(requestComments(postid))
     return fetch(
       `https://jsonplaceholder.typicode.com/posts/${postid}/comments`
     )

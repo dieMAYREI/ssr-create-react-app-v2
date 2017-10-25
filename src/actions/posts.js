@@ -1,10 +1,4 @@
-import { REQUEST, RECEIVE } from '../types/posts'
-
-function requestPosts() {
-  return {
-    type: REQUEST
-  }
-}
+import { RECEIVE } from '../types/posts'
 
 function receivePosts(json) {
   return {
@@ -15,7 +9,6 @@ function receivePosts(json) {
 
 function fetchPosts() {
   return dispatch => {
-    dispatch(requestPosts())
     return fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
       .then(json => dispatch(receivePosts(json)))

@@ -1,4 +1,4 @@
-import { REQUEST, RECEIVE } from '../types/comments'
+import { RECEIVE } from '../types/comments'
 
 const initialState = {
   byPost: {}
@@ -7,14 +7,6 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   let comments
   switch (action.type) {
-    case REQUEST:
-      comments = Object.assign({}, state.byPost)
-      return Object.assign({}, state, {
-        byPost: Object.assign(comments, {
-          [action.postid]: {
-          }
-        })
-      })
     case RECEIVE:
       comments = Object.assign({}, state.byPost)
       return Object.assign({}, state, {
