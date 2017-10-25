@@ -32,7 +32,7 @@ function shouldFetchComments(postid, state) {
   if (!comments) {
     return true
   }
-  if (comments.items || comments.isFetching) {
+  if (comments.items) {
     return false
   }
 

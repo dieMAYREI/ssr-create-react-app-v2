@@ -12,7 +12,6 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {
         byPost: Object.assign(comments, {
           [action.postid]: {
-            isFetching: true
           }
         })
       })
@@ -21,7 +20,6 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {
         byPost: Object.assign(comments, {
           [action.postid]: {
-            isFetching: false,
             items: action.comments
           }
         })

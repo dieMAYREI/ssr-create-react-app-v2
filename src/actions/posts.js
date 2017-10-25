@@ -25,7 +25,7 @@ function fetchPosts() {
 function shouldFetchPosts(state) {
   const posts = state.posts
 
-  if (posts.items || posts.isFetching) {
+  if (posts.items) {
     return false
   }
 
