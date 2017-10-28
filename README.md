@@ -21,7 +21,8 @@ It can be useful to persist the store-data (including the API responses), to spe
 You should however add some invalidation logic, to get fresh data from time to time.
 
 ### Client
-[`redux-persist`](https://github.com/rt2zz/redux-persist) is a nice library for this. You should however delay rendering your App until the rehydration is done to prevent races. Example wrapper: [HydratedAppProvider](src/containers/HydratedAppProvider.js)
+[`redux-persist`](https://github.com/rt2zz/redux-persist) is a nice library for this. 
+It can be helpful to delay rendering until rehydration is complete. v5 includes a `PersistGate` component, for v4 we used this wrapper: [HydratedAppProvider](src/containers/HydratedAppProvider.js)
 
 ### Server
 One way to solve this is to store the store-data outside of the request. Example:
